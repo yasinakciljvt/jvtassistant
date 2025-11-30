@@ -1,9 +1,9 @@
 package com.jvt.jvtassistant.dto.request;
 
-
 import com.jvt.jvtassistant.entity.Category;
+import com.jvt.jvtassistant.entity.Status;
 import lombok.*;
-import jakarta.validation.constraints.*;
+
 import java.time.LocalDate;
 
 @Getter
@@ -11,15 +11,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TaskCreateRequest {
-    @NotBlank
+public class TaskUpdateDto {
     private String title;
-
     private String description;
-
-    @NotNull
-    private Category category; // WORKOUT, DIET, STUDY, CODING, OTHER
-
-    @NotNull
+    private Category category;
     private LocalDate date;
+    private Status status;
 }

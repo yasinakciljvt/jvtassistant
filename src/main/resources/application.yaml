@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jvtassistant
+    url: jdbc:postgresql://localhost:5432/assistantdb
     username: postgres
     password: 123
 

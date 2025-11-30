@@ -19,13 +19,13 @@ public class User {
     @GeneratedValue
     private UUID id;
 
-    @Column(nullable = false, unique = true)
-    private String username;
+    @Column(name = "username",nullable = false, unique = true)
+    private String userName;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     private LocalDateTime createdAt;

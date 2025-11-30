@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 public class UserResponse {
     private UUID id;
-    private String username;
+    private String userName;
     private String email;
     private LocalDateTime createdAt;
 }

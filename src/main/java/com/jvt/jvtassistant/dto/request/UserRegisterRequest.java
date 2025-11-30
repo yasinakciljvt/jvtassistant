@@ -13,7 +13,7 @@ import jakarta.validation.constraints.*;
 public class UserRegisterRequest {
 
     @NotBlank
-    private String username;
+    private String userName;
 
     @Email
     @NotBlank

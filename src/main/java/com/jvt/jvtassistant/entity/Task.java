@@ -29,7 +29,6 @@ public class Task {
     @Column(columnDefinition = "text")
     private String description;
 
-    @Enumerated(EnumType.STRING)
     private Category category;
 
     @Enumerated(EnumType.STRING)
