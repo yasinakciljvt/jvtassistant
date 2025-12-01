@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import com.jvt.jvtassistant.errorhandler.UserNotFoundException;
+import com.jvt.jvtassistant.errorhandler.TaskNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +32,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public TaskResponse createTask(UUID userId, TaskCreateRequest request) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
 
         Task task = taskMapper.toEntity(request, user);
         task.setCreatedAt(LocalDateTime.now());
@@ -50,7 +52,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public TaskResponse updateTask(UUID taskId, TaskUpdateDto dto) {
         Task task = taskRepository.findById(taskId)
-                .orElseThrow(() -> new RuntimeException("Task not found"));
+                .orElseThrow(() -> new TaskNotFoundException("Task not found"));
 
         taskMapper.updateEntity(task, dto);
 
@@ -61,7 +63,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void deleteTask(UUID taskId) {
         Task task = taskRepository.findById(taskId)
-                .orElseThrow(() -> new RuntimeException("Task not found"));
+                .orElseThrow(() -> new TaskNotFoundException("Task not found"));
         taskRepository.delete(task);
     }
 }
